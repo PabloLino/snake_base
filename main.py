@@ -3,6 +3,14 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 import time
+import sys
+import traceback   
+
+def log_exception(exc_type, exc_value, exc_traceback):
+    with open("error_log.txt", "w") as f:
+        traceback.print_exception(exc_type, exc_value, exc_traceback, file=f)
+
+sys.excepthook = log_exception
 
 
 def control_keys():
